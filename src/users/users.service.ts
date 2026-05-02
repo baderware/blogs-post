@@ -11,7 +11,9 @@ export class UsersService {
   findAll() {
     return `This action returns all users`;
   }
+  findOneByEmail(email:string){
 
+  }
   findOne(id: number) {
     return `This action returns a #${id} user`;
   }
