@@ -21,7 +21,7 @@ export class AuthService {
       const {password,...result}=user;
       return result
   }
-  login(user:any) {
+  async login(user:any) {
     const userInfo=await this.validateUser(user.email,user.password)
     const payload={
       sub:userInfo.id,
@@ -30,7 +30,7 @@ export class AuthService {
     }
 
     return {
-        accessToken: this.jwtService.sign(payload);
+        accessToken: this.jwtService.sign(payload),
     }
   }
 }

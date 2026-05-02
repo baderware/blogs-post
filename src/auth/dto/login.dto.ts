@@ -1,8 +1,8 @@
-import { isEmail, isString } from "class-validator";
+import { IsEmail, IsString } from "class-validator";
 
 export class LogInDto {
-    @isEmail({},{message:'please use a valid email'})
+    @IsEmail({},{message:'please use a valid email'})
     email:string;
-    @isString()
+    @IsString()
     password:string;
 }
