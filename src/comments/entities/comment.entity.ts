@@ -15,7 +15,7 @@ export class Comment {
 
     @Column()
     content: string;
-    
+    //those columns require an object read
     //-------------------------------------------------
     @ManyToOne(() => User, (author) => author.comments)
     author: User;

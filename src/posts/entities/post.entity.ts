@@ -12,8 +12,11 @@ export class Post {
   id: number;
 
 //for SEO
-  @Column({ unique: true })
+  @Column({ nullable: true })
   slug: string;
+
+  @Column()
+  title:string;
 
   @Column({type:'text', nullable:true})
   content:string
@@ -32,7 +35,7 @@ export class Post {
   @ManyToOne(() => User, (user) => user.posts)
   user: User;
 
-  @OneToMany(() => Comment,(comment) => comment.post)
+  @OneToMany(() => Comment, (comment) => comment.post)
   comments: Comment[];
 //-----------------------------------------------------
   @CreateDateColumn()
