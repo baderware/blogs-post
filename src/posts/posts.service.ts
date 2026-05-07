@@ -18,7 +18,7 @@ export class PostsService {
     const post = this.repo.create({
       ...postData,
       user:{id:userId}
-    })
+    });
     return await this.repo.save(post);
   }
 
@@ -32,7 +32,7 @@ export class PostsService {
 
   async update(id: number, updatePostDto: UpdatePostDto) {
     const toEditPost = await this.repo.findOneBy({id : id});
-    if( !toEditPost){
+    if(!toEditPost){
       throw new NotFoundException(`Post #${id} not found`);
     }
     return ;
